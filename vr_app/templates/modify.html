@@ -1,0 +1,12 @@
+<form method = "POST" action="{% url 'qnamodify' question.id%}">
+    {% csrf_token %}
+	<h4>질문: </h4>
+	<input type="text" name="question_title" value={{question.question_title}}>
+	<br>
+	<br>
+	<h4>본문: </h4>
+	<textarea cols=40 rows=10 name="question_content">{{question.question_content}}</textarea>
+	<br>
+	<br>
+    <input type = "submit" value="제출하기">
+</form>

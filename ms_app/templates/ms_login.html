@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko" style="margin: 0; padding: 0; overflow: hidden;">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>마인드쉐어 - 로그인</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <style type="text/css">
+    .copyright {
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:30px;   
+        background: rgb(231, 231, 231);
+        
+    }
+
+    #black{color: rgb(156, 156, 156);}
+</style>
+
+  <!-- Favicons
+      ================================================== -->
+  <!--<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">-->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/fonts/font-awesome/css/font-awesome.css">
+
+  <!-- Stylesheet
+      ================================================== -->
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/nivo-lightbox/nivo-lightbox.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/nivo-lightbox/default.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+  <!--이부분 오류떠서 일단 주석처리(20190808 02:49 손현준)<script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/advent-pro:n1:default;antic:n4:default.js" type="text/javascript"></script>-->
+</head>
+
+<!--The>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Light Theme</title>
+  <link href="css/singlePageTemplate.css" rel="stylesheet" type="text/css">
+   The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it. -->
+  <!--<script>var __adobewebfontsappname__ = "dreamweaver"</script>
+  <script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+   HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!--The-->
+{% load staticfiles %}
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    <img src="{% static '/admin/img/ms_logo.png'%}" alt="" width="100" height="52"
+          class="page-scroll img-responsive img-rounded"></div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  </nav>
+  
+<!--  
+  <blockquote style="margin-top: 100px">
+    <h1>LOGIN PAGE</h1>
+  </blockquote>
+  
+  <form method="POST" action="{% url 'ms_login' %}">
+    {% csrf_token %}
+    {{error}}<br>
+    <label for="ID">ID</label>
+    <input type="text" name="ID" id="ID">
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password">
+    <input type="submit" name="submit" id="submit" value="Submit">
+    
+  </form>
+-->
+  <header id="header">
+    <div class="intro">
+      <div class="overlay">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 login-text">
+              <h1>login</h1>
+              <p>시작하려면 로그인하세요</p>
+              <form method="POST" action="{% url 'ms_login' %}">
+                {% csrf_token %}
+                {{error}}
+                <br>
+                <div class="form-group row">
+                  <label for="inputid" class="col-sm-2 col-form-label">아이디</label>
+                  <div class="col-sm-10 col-md-11">
+                    <input type="text" class="form-control" name='inputid' id="inputid" placeholder="아이디를 입력해주세요">
+                  </div>
+                  <br>
+                  <label for="inputpassword" class="col-sm-2 col-form-label">비밀번호</label>
+                  <div class="col-sm-11">
+                    <input type="password" class="form-control" name='inputpassword' id="inputpassword"
+                      placeholder="비밀번호를 입력해주세요.">
+                  </div>
+                  <br><br><br>
+                  <br><br><br>
+                  <input type="submit" class="btn btn-custom btn-lg page-scroll" value="login">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>  
+
+  <div id = "black" class="copyright text-center py-3">&copy; 2019 MINDSHARE. ALL RIGHTS RESERVED.
+  </div>
+
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

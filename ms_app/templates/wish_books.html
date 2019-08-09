@@ -1,0 +1,142 @@
+희망도서를 신청하는 페이지입니다.
+<!--
+    서명, 저자, 출판사 이름, 발행년도, 
+-->>
+{% load widget_tweaks %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>마인드쉐어 - 희망도서 신청</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <style type="text/css">
+    .copyright {
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:30px;   
+        background: rgb(231, 231, 231);
+        position: static;
+        margin-bottom: 0px;
+    }
+
+    #black{color: rgb(156, 156, 156);}
+</style>
+
+  <!-- Favicons
+      ================================================== -->
+  <!--<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">-->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/fonts/font-awesome/css/font-awesome.css">
+
+  <!-- Stylesheet
+      ================================================== -->
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/nivo-lightbox/nivo-lightbox.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/nivo-lightbox/default.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+  <!--이부분 오류떠서 일단 주석처리(20190808 02:49 손현준)<script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/advent-pro:n1:default;antic:n4:default.js" type="text/javascript"></script>-->
+</head>
+
+<header>
+
+</header>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    <img src="{% static '/admin/img/ms_logo.png'%}" alt="" width="100" height="52"
+          class="page-scroll img-responsive img-rounded"></div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  </nav>
+<form id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 login-text">
+            <h1>희망도서</h1>
+            <p>원하시는 도서를 신청할 수 있습니다.</p>
+            <form action="{% url 'create' %}" style="margin-top: 100px"><!--울 마진값 일부러 준거에요 추후에 수정할게요-->
+              <div class="form-group row">
+              {% render_field models.title class="radio" %}
+                <label class="col-sm-2 col-form-label">도서명</label>
+                <div class="col-sm-10 col-md-11">
+                  <input type="text" class="form-control" name="book_name" placeholder="도서명을 입력해주세요." required>
+                </div>
+                <br>
+                <label class="col-sm-2 col-form-label">저자</label>
+                <div class="col-sm-10 col-md-11">
+                  <input type="text" class="form-control" name="book_author" placeholder="저자명을 입력해주세요." required>
+                </div>
+                <br>
+                <label class="col-sm-2 col-form-label">출판사이름</label>
+                <div class="col-sm-10 col-md-11">
+                  <input type="text" class="form-control" name="book_publish" placeholder="출판사를  입력해주세요." required>
+                </div>
+                <br>
+                <label class="col-sm-2 col-form-label">발행년도</label>
+                <div class="col-sm-10 col-md-11">
+                  <input type="number" class="form-control" name="book_year" placeholder="발행년도를 입력해주세요." required>
+                </div>
+                <br>
+                </div>
+                <br><br>
+                
+                <input type="submit" class="btn btn-custom btn-lg page-scroll" value="제출하기">
+                <button onclick="location.href='{% url 'ms_index'%}'" class="btn btn-custom btn-lg page-scroll">돌아가기</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<br><br><br>
+<!--의준 :: 다음을 누르면 "신청되었습니다"창이 뜬후에 index로 넘어가게 해주세용-->
+
+<div id = "black" class="copyright text-center py-3">&copy; 2019 MINDSHARE. ALL RIGHTS RESERVED.</a>
+</div>
+
+{% comment %} 
+<script type="text/javascript" src="/static/admin/js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="/static/admin/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/admin/js/SmoothScroll.js"></script>
+<script type="text/javascript" src="/static/admin/js/nivo-lightbox.js"></script>
+<script type="text/javascript" src="/static/admin/js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="/static/admin/js/contact_me.js"></script>
+<script type="text/javascript" src="/static/admin/js/main.js"></script> {% endcomment %}
+</body>
+</html>
