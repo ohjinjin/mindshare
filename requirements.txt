@@ -1,7 +1,7 @@
 antiorm==1.2.1
 db==0.1.1
 dj-database-url==0.5.0
-Django==2.2.3
+Django==2.2.27
 django-widget-tweaks==1.4.5
 gunicorn==19.9.0
 Pillow==6.1.0
